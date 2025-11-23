@@ -1,0 +1,41 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 120px; /* 아이콘 간격 */
+  padding-top: 12px;
+}
+
+.tabWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* 기본 밑줄 (비활성 상태는 투명) */
+.underline {
+  width: 50px;
+  height: 2px;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* 활성 탭일 때 밑줄 표시 */
+.activeUnderline {
+  background: #000;
+}

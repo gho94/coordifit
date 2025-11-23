@@ -1,0 +1,20 @@
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.action-button {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

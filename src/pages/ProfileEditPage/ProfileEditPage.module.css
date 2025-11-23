@@ -1,0 +1,226 @@
+.page {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* ------------------------------ */
+/* 프로필 이미지 */
+/* ------------------------------ */
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  position: relative;
+}
+
+.fileInput {
+  display: none;
+}
+
+.avatarImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  border: 1px solid #eee;
+}
+
+.avatarImage:hover {
+  opacity: 0.8;
+}
+
+.avatarChangeText {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #8e8e93;
+  cursor: pointer;
+}
+
+/* ------------------------------ */
+/* 저장 버튼 (헤더용) */
+/* ------------------------------ */
+.saveButton {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  color: #8e8e93;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: -0.05em;
+  transition: color 0.2s ease;
+  z-index: 1000;
+}
+
+.saveButton:hover {
+  color: #333333;
+}
+
+/* ------------------------------ */
+/* 프로필 정보 필드 */
+/* ------------------------------ */
+.fields {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.4);
+  padding-bottom: 12px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+}
+
+.fieldLabel {
+  font-weight: 600;
+  font-size: 15px;
+  color: #797982;
+  letter-spacing: -0.05em;
+}
+.fieldValue {
+  font-weight: 500;
+  font-size: 15px;
+  color: #333333;
+  letter-spacing: -0.05em;
+  text-align: right;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding-right: 28px; /* ✅ 아이콘과 겹치지 않게 여백 */
+}
+
+.fieldValue[disabled] {
+  color: #8e8e93;
+}
+
+.fieldChevron {
+  position: absolute;
+  right: 4px;
+  width: 5;
+  height: 10px;
+}
+
+/* ------------------------------ */
+/* 로그아웃 & 탈퇴 버튼 */
+/* ------------------------------ */
+.actions {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.logoutButton {
+  width: 330px;
+  height: 43px;
+  background: #8e8e93;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logoutButton:hover {
+  background: #6f6f75;
+}
+
+.textButton {
+  position: absolute;
+  right: 16px;
+  bottom: -76px;
+  font-size: 14px;
+  color: #a6a6a6;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.textButton:hover {
+  color: #a00;
+  text-decoration: none;
+}
+/* ✨ 수정 중 효과 */
+.editing {
+  background: rgba(240, 240, 255, 0.4);
+  border-bottom-color: #333333 !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ✨ 성별 모달 내 버튼 스타일 */
+.genderOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.genderButton {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.genderButton:hover {
+  background: #f3f3ff;
+}
+
+.genderButton.selected {
+  border-color: #333333;
+  background: #999999;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ------------------------------ */
+/* 모달 메시지 */
+/* ------------------------------ */
+.modal-message {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* ------------------------------ */
+/* 반응형 대응 */
+/* ------------------------------ */
+@media (max-width: 360px) {
+  .fields {
+    width: 95%;
+  }
+}

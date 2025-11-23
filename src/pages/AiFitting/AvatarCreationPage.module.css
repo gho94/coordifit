@@ -1,0 +1,188 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3.5vh, 28px);
+  padding: clamp(8px, 1.5vh, 16px) 18px clamp(20px, 4vh, 36px);
+  max-width: 360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1.2vh, 10px);
+}
+
+.nameInput {
+  width: 100%;
+  padding: clamp(8px, 1.5vh, 12px) 0;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: clamp(18px, 3vh, 24px);
+  font-weight: 700;
+  color: #111827;
+  background: transparent;
+}
+
+.nameInput::placeholder {
+  color: #999999;
+}
+
+.nameInput:focus {
+  outline: none;
+  border-color: #94a3b8;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.uploadCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vh, 16px);
+  padding: clamp(20px, 4vh, 32px) 20px clamp(18px, 3.5vh, 28px);
+  border-radius: 16px;
+  border: 2px dashed #d1d5db;
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 아이콘만 보이도록 */
+.uploadIconOnly {
+  width: clamp(60px, 12vh, 100px);
+  height: clamp(60px, 12vh, 100px);
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.uploadVisual {
+  width: clamp(120px, 22vh, 180px);
+  height: clamp(120px, 22vh, 180px);
+  border-radius: 24px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.iconImage {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploadTitle {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: clamp(14px, 2.5vh, 18px);
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.uploadDescription {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 20px;
+}
+
+.uploadActions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.uploadButton {
+  width: 100%;
+  height: clamp(40px, 6vh, 48px);
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: clamp(12px, 2vh, 14px);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.uploadButton:active {
+  transform: translateY(1px);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  flex: 1;
+  padding: clamp(10px, 2vh, 14px);
+  border-radius: 12px;
+  font-size: clamp(13px, 2.2vh, 15px);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.primaryButton {
+  background: #333333;
+  color: #ffffff;
+}
+
+.primaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondaryButton {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+/* ✅ 갤러리 버튼 */
+.galleryButton {
+  background: #333333;
+  color: #ffffff;
+  box-shadow:
+    0px 10px 15px -3px rgba(59, 130, 246, 0.2),
+    0px 4px 6px -4px rgba(59, 130, 246, 0.2);
+}
+
+/* ✅ 카메라 버튼 */
+.cameraButton {
+  background: #e5e5ea;
+  color: #1f2937;
+}
+
+/* 아이콘 */
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .uploadActions {
+    flex-direction: row;
+  }
+}

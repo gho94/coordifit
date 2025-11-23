@@ -1,0 +1,585 @@
+.page {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: -12px;
+}
+
+/* 다중 등록 헤더 스타일 */
+.multipleHeader {
+  position: fixed;
+  top: 68px; /* Header 높이만큼 아래에 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 360px; /* Layout과 동일한 최대 너비 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 16px 12px;
+  height: 70px;
+  z-index: 40;
+}
+
+.progressInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.productName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progressText {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.navButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navButton:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.backIcon {
+  width: 24px;
+  height: 24px;
+  border-left: 1.5px solid #333333;
+  border-bottom: 1.5px solid #333333;
+  transform: rotate(45deg);
+}
+
+.headerTitle {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.headerPlaceholder {
+  width: 40px;
+  height: 40px;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 80px;
+}
+
+/* 다중 등록일 때 상단 여백 추가 */
+.page.withMultipleHeader .form {
+  margin-top: 82px; /* multipleHeader 높이(70px) + 여백(12px) */
+}
+
+.form::-webkit-scrollbar {
+  display: none;
+}
+
+.photoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.photoGuide {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.photoUploader {
+  width: 156px;
+  height: 156px;
+  border-radius: 22px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.previewItem {
+  position: relative;
+  flex: 0 0 70%;
+  max-width: 220px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f5f5f5;
+  scroll-snap-align: center;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.removeButton {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.previewScroll {
+  display: flex;
+  gap: 12px; /* ✅ 사진 사이 여백 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; /* ✅ 스냅형 스크롤 */
+  scroll-padding: 16px; /* ✅ 첫 사진이 화면 중앙에 잘 맞게끔 여백 */
+  padding: 0 16px; /* ✅ 양쪽 패딩 */
+  justify-content: flex-start;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+.previewScroll::-webkit-scrollbar {
+  display: none; /* ✅ 스크롤바 숨기기 */
+}
+
+.photoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #6b7280;
+}
+.photoCount {
+  align-self: flex-end;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666666;
+}
+.photoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 28px;
+  color: #333333;
+}
+
+.photoText {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fieldSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 4px;
+  min-height: 30px;
+}
+
+.fieldLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* 값이 들어갔을 때 */
+.fieldValue {
+  font-family: "Pretendard-variable", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #78a4d1;
+}
+
+.placeholder {
+  font-family: "Pretendard-variable", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #d9d9d9;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  text-align: right;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #78a4d1;
+  padding: 6px 0;
+  padding-left: 35px;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: #333333;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #d9d9d9;
+  font-family: "Pretendard-variable", "Noto Sans KR", sans-serif;
+}
+
+.textareaRow {
+  align-items: flex-start;
+}
+.textarea:focus,
+.textarea:not(:placeholder-shown) {
+  font-family: "pretendard-variable";
+  color: #78a4d1;
+  font-size: 15px;
+  font-weight: 600;
+}
+.textarea {
+  flex: 1;
+  border: none;
+  background: transparent;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333; /* 기본 */
+  padding: 6px 0;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #333333;
+}
+
+.categoryButton {
+  border: none;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: none;
+  border-top: none;
+  z-index: 50;
+}
+
+.submitButton {
+  align-self: center;
+  width: 161px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  background: #333333;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 30px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.submitButtonDisabled {
+  background: #333333;
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.sheetOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.sheet {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sheetHandle {
+  width: 60px;
+  height: 4px;
+  border-radius: 4px;
+  background: #d9d9d9;
+  align-self: center;
+}
+
+.sheetTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  text-align: left;
+}
+
+.sheetMainList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sheetMainButton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f4f6;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sheetMainIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  object-fit: contain; /* ✅ 아이콘 비율 유지 */
+}
+
+.sheetMainActive {
+  background: #a6a6a6;
+  color: #ffffff;
+}
+
+.sheetMainActive .sheetMainIcon {
+  background: #ffffff;
+  color: #333333;
+}
+
+.sheetSubList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sheetSubTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.sheetSubGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sheetSubButton {
+  min-width: 50px;
+  height: 25px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: none;
+  background: #f3f4f6;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+}
+
+.sheetSubActive {
+  background: #999999;
+  color: #ffffff;
+}
+.sheetMainIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  object-fit: contain; /* ✅ 아이콘 비율 유지 */
+}
+
+/* 숨김 처리 */
+.hiddenDateInput {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* 아이콘 위치 정상화 */
+.calendarIcon {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0; /* 크기 줄어들지 않게 */
+  margin-left: auto;
+}
+.datePlaceholder {
+  font-size: 15px;
+  font-weight: 600;
+  color: #d9d9d9; /* 기존 placeholder 스타일 */
+}
+
+.dateValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #78a4d1; /* 선택된 날짜 색상 */
+}
+
+/* ✅ 마지막 “사진 추가” 카드 */
+.addNewCard {
+  border: 2px dashed #c8c8c8;
+  background: #fafafa;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.addNewCard:hover {
+  background: #f0f0f0;
+}
+
+.addIcon {
+  width: 42px;
+  height: 42px;
+  opacity: 0.7;
+}
+
+.addText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}

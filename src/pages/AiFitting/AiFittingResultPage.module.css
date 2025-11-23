@@ -1,0 +1,459 @@
+.page {
+  min-height: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resultImageButton {
+  width: 100%;
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e5e7eb;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resultImageButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 18px 30px rgba(15, 23, 42, 0.18);
+}
+
+.resultImageButton:active {
+  transform: scale(0.99);
+}
+
+.resultImageWrapper {
+  width: 220px;
+  height: 240px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resultImageWrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.resultImage {
+  width: 100%;
+  height: 100%;
+  object-position: center; /* ✅ 중앙 기준으로 자르기 (핵심!) */
+  object-fit: cover; /* or contain */
+}
+.avatarInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.avatarName {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #333333;
+}
+
+.outfitSummary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  width: 100%;
+  max-width: 280px;
+  color: #a6a6a6;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.outfitItem {
+  flex: 1 1 auto;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  display: block;
+}
+.outfitSlash {
+  color: #a6a6a6;
+  margin: 0 4px;
+  user-select: none;
+}
+
+.actionRow {
+  display: flex;
+  gap: 12px;
+}
+
+.saveButton,
+.retryButton {
+  flex: 1;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.saveButton {
+  background: #e5e5ea;
+  color: #1f2937;
+}
+
+.retryButton {
+  background: #333333;
+  color: #ffffff;
+}
+
+.saveButton:disabled,
+.retryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 기본 회색 */
+.analysisToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: #78a4d1;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* 활성화 상태 → 파란색 */
+.analysisToggle.active {
+  background: #aeaeb2;
+}
+
+.analysisIcon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.analysisPanel {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.analysisContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* 제목: 스타일 + 편안함, 롱슬리브 코디 */
+.analysisTitle {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  margin: 0;
+}
+
+.analysisDescription {
+  margin: 0;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #999999;
+  white-space: pre-line;
+}
+/* 불릿 리스트 */
+.analysisList {
+  list-style: disc;
+  padding-left: 16px;
+  margin: 0;
+}
+
+.analysisBullet {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #999999;
+}
+
+.analysisError {
+  margin: 0;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ef4444;
+}
+
+.hashtagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hashtag {
+  padding: 2px 12px;
+  border-radius: 20px;
+  background: #cecece;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333333;
+}
+/* 해시태그 그룹 (#편안 #출근) */
+.hashtagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hashtagBadge {
+  background: #cecece;
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #333333;
+}
+.productHeading {
+  margin: 4px 0 0;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.productCard {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.productThumbnail {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0; /* flex 아이템이 축소될 수 있도록 */
+}
+
+.productMetaHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productType {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.productBrand {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.productName {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.productPrice {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.resultImageButton:focus-visible,
+.saveButton:focus-visible,
+.retryButton:focus-visible,
+.analysisToggle:focus-visible {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+
+/* 이미지 확대 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 600px;
+  object-fit: contain;
+  display: block;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.modalCloseButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* 로딩 컴포넌트 CSS */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loadingBox {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 60px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}

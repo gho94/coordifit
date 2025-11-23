@@ -1,0 +1,365 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fafafa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 카테고리 섹션 - 고정 */
+.categoryContainer {
+  background: #ffffff;
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.categoryScroller {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: relative;
+
+  /* 가로 스크롤 허용 */
+  overscroll-behavior-x: contain;
+}
+
+.categoryScroller::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(153, 153, 153, 0.2);
+  border-radius: 1px;
+}
+
+.categoryScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 72px;
+  min-width: 52px;
+  scroll-snap-align: start;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.categoryButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.categoryButton:hover {
+  transform: scale(1.05);
+}
+
+.categoryImageBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.activeCategoryButton .categoryImageBox {
+  background: #ebeef1;
+}
+
+.categoryImage {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.categoryLabel {
+  margin-top: 4px;
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #999999; /* 기본 비선택 상태 */
+  text-align: center;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* 선택된 카테고리의 라벨 스타일 */
+.activeCategoryButton + .categoryLabel {
+  color: #333333; /* 선택된 상태 */
+  font-weight: 600;
+}
+
+/* 선택된 카테고리의 하단 보더 */
+.activeCategoryButton + .categoryLabel::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #333333;
+  border-radius: 1px;
+  z-index: 10;
+}
+
+.loadingContainer,
+.errorContainer,
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Pretendard Variable", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333333;
+  height: 50vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.errorContainer button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.errorContainer button:hover {
+  background-color: #333;
+}
+/* 스크롤 가능한 콘텐츠 영역 */
+.contentArea {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fafafa;
+  padding-bottom: calc(79px + env(safe-area-inset-bottom)); /* BottomNav 높이 + safe-area */
+  /* 스크롤바 숨김 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.contentArea::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Webkit */
+}
+
+/* 게시물 헤더 (개수 + 정렬) */
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #fafafa;
+  position: sticky;
+  top: -1;
+  z-index: 50;
+}
+
+/* 게시물 개수 표시 */
+.postCount {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #999999;
+}
+/* 정렬 컴포넌트 */
+.sortContainer {
+  position: relative;
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #999999;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.sortButton:hover {
+  background-color: #f5f5f5;
+}
+
+.sortArrow {
+  width: 12px;
+  height: 8px;
+  transition: transform 0.2s ease;
+}
+
+.sortButton:hover .sortArrow {
+  transform: rotate(180deg);
+}
+
+.sortDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 80px;
+  overflow: hidden;
+}
+
+.sortOption {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #333333;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.sortOption:hover {
+  background-color: #f5f5f5;
+}
+
+.activeSortOption {
+  background-color: #333333;
+  color: white;
+}
+
+.activeSortOption:hover {
+  background-color: #333333;
+}
+
+.postList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  padding: 0;
+}
+
+.postCard {
+  width: 100%; /* grid column에 맞춰 자동 사이징 */
+  background: #f6f6f6;
+  overflow: hidden;
+  aspect-ratio: 1; /* 정사각형 비율 유지 */
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+.postCard:hover {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.postImage {
+  width: 100%; /* 부모 요소에 맞춰 자동 사이징 */
+  height: 100%; /* aspect-ratio에 맞춰 자동 높이 */
+  overflow: hidden;
+}
+
+.postImage img {
+  width: 100%; /* 부모 요소에 맞춰 자동 사이징 */
+  height: 100%;
+  object-fit: cover;
+}
+.webkit-scrollbar {
+  display: none;
+}
+/* 마이페이지와 동일한 스타일이므로 postInfo 관련 스타일 제거 */
+.postInfo {
+  display: none;
+}
+
+.userInfo {
+  display: none;
+}
+
+.profileImage {
+  display: none;
+}
+
+.nickname {
+  display: none;
+}
+
+.content {
+  display: none;
+}
+
+.stats {
+  display: none;
+}
+
+.stats span {
+  display: none;
+}
+
+/* 480px 이상에서는 360px 기준으로 고정 (반응형 제한) */
+@media (min-width: 480px) {
+  .page {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .categoryContainer {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .contentArea {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .postHeader {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .postList {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}

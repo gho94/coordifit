@@ -1,0 +1,87 @@
+.color {
+  color: red;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.view-box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 10px;
+}
+
+.viewmode-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.monthLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.dateButton {
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 4px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.red-icon path {
+  fill: red;
+}
+
+.dateButton.open .arrowIcon {
+  transform: rotate(180deg);
+  color: #000;
+}
+
+.arrowIcon {
+  font-size: 20px;
+  color: #333;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  padding-left: 4px;
+}
+
+.weekday {
+  font-size: 13px;
+  font-weight: 500;
+  color: #999;
+  letter-spacing: -0.3px;
+}
+
+.date {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}

@@ -1,0 +1,21 @@
+.viewmodeBox {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.icon {
+  font-size: 26px; /* react-icon 기본 크기 */
+  color: #bbb; /* 기본: 옅은 회색 */
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.active {
+  color: #000; /* 클릭된 상태: 검정 */
+}

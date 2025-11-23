@@ -1,0 +1,186 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+.uploadSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.uploadImageWrapper {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.uploadTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 24px 0;
+  line-height: 1.4;
+}
+
+.uploadInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+}
+
+.bullet {
+  color: #999;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.dropZone {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  border: 2px dashed #ddd;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  margin-bottom: 32px;
+}
+
+.dropZone:hover,
+.dragOver {
+  border-color: #333;
+  background: #f0f0f0;
+}
+
+.hasFile {
+  border-color: #333;
+  background: #fff;
+}
+
+.dropContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.dropContent p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.selectedFile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.previewImage {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.fileName {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  word-break: break-all;
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.analyzeButton {
+  width: 100%;
+  max-width: 300px;
+  padding: 16px 32px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.analyzeButton:hover:not(:disabled) {
+  background: #555;
+}
+
+.analyzeButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* 반응형 디자인 */
+@media (min-width: 481px) {
+  .container {
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .uploadTitle {
+    font-size: 18px;
+  }
+
+  .dropZone {
+    min-height: 180px;
+  }
+}

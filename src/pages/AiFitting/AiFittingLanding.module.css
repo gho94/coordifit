@@ -1,0 +1,557 @@
+/* CSS 변수로 반응형 제어 */
+:root {
+  --scale-factor: 1;
+  --base-width: 360px;
+  --base-height: 800px;
+}
+
+/* 480px 이상에서는 스케일 고정 */
+@media (min-width: 480px) {
+  :root {
+    --scale-factor: 1;
+  }
+
+  .page,
+  .pageContent,
+  .bottomArea {
+    max-width: var(--base-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.page {
+  width: 100vw;
+  max-width: min(400px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  position: relative;
+  margin: -12px 0 -12px 0;
+}
+
+.pageContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(360px, 100%);
+  margin: 0 auto;
+}
+
+.bottomArea {
+  margin-top: auto;
+  padding: 2vh 2vw;
+  width: 100%;
+  max-width: min(360px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatarSection {
+  display: flex;
+  justify-content: center;
+}
+
+.avatarPanel {
+  width: min(80vw, 288px);
+  height: min(30vh, 240px);
+  padding: min(4vh, 32px) min(6vw, 48px);
+  background: #f3f4f6;
+  border-radius: min(5vw, 18px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(1vh, 8px);
+  margin: 0 auto;
+}
+
+.avatarPreviewButton {
+  width: min(60vw, 216px);
+  height: min(30vh, 240px);
+  border-radius: min(4vw, 14.4px);
+  background: #f3f4f6;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 auto;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.avatarPreviewButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.avatarPreviewButton:active {
+  transform: scale(0.99);
+}
+
+.avatarPreviewImage {
+  width: min(60vw, 216px);
+  height: min(30vh, 240px);
+  border-radius: min(4vw, 14.4px);
+  object-fit: cover;
+}
+
+.avatarPlaceholderIcon {
+  width: min(20vw, 72px);
+  height: min(10vh, 80px);
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.avatarTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.avatarHeading {
+  font-weight: 700;
+  font-size: min(3.5vw, 12.6px);
+  line-height: min(5vw, 18px);
+  color: #4b5563;
+}
+
+.avatarDescription {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: #6b7280;
+}
+
+.avatarAction {
+  border: none;
+  border-radius: 9999px;
+  background: #333333;
+  color: #ffffff;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: min(3vw, 10.8px);
+  padding: min(2.5vw, 9px) min(8vw, 28.8px);
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.avatarAction:active {
+  transform: scale(0.98);
+}
+
+.selectionSection {
+  display: flex;
+  flex-direction: column;
+  gap: min(2vh, 16px);
+  margin-top: min(2vh, 16px);
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: min(1vh, 8px);
+  padding: 0 min(2vw, 7.2px);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(4.5vw, 16.2px);
+  font-weight: 600;
+  line-height: min(7vw, 25.2px);
+  color: #333333;
+}
+
+.backToSelectionButton {
+  padding: min(1.5vw, 5.4px) min(3vw, 10.8px);
+  border: 1px solid #d1d5db;
+  border-radius: min(2vw, 7.2px);
+  background: #ffffff;
+  color: #6b7280;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(3.5vw, 12.6px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backToSelectionButton:hover {
+  border-color: #9ca3af;
+  color: #374151;
+}
+
+.selectionList {
+  display: flex;
+  flex-direction: column;
+  gap: min(1.5vh, 12px);
+  padding: 0 min(2vw, 7.2px);
+}
+
+.selectionCard {
+  display: flex;
+  align-items: center;
+  gap: min(4vw, 14.4px);
+  width: 100%;
+  height: min(10vh, 80px);
+  padding: 0 min(5vw, 18px) 0 min(4vw, 14.4px);
+  border: none;
+  border-radius: min(2vw, 7.2px);
+  background: #f3f4f6;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.selectionCardActive {
+  box-shadow:
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.selectionIconWrapper {
+  width: min(10vw, 36px);
+  height: min(10vw, 36px);
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.selectionIcon {
+  width: min(6vw, 21.6px);
+  height: min(6vw, 21.6px);
+  object-fit: contain;
+}
+
+.selectionThumbnailWrapper {
+  width: min(10vw, 36px);
+  height: min(10vw, 36px);
+  border-radius: min(2vw, 7.2px);
+  overflow: hidden;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.selectionThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selectionInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: min(1vw, 3.6px);
+}
+
+.selectionLabel {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(4vw, 14.4px);
+  font-weight: 600;
+  line-height: min(6vw, 21.6px);
+  color: #333333;
+}
+
+.selectionSummary {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(3.5vw, 12.6px);
+  font-weight: 500;
+  line-height: 20px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(50vw, 180px);
+}
+
+.selectionChevronIcon {
+  width: min(6vw, 21.6px);
+  height: min(6vw, 21.6px);
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+
+.selectionChevronIconActive {
+  transform: rotate(0deg);
+}
+
+.closetPanel {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: min(5vw, 18px);
+  flex: 1;
+  overflow: hidden;
+  max-height: min(60vh, 480px);
+  min-height: min(25vh, 200px);
+  padding: 0 min(2vw, 7.2px);
+}
+
+.categoryTabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.categoryMainLabel {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(4vw, 14.4px);
+  font-weight: 700;
+  color: #111827;
+}
+
+.subCategoryTabs {
+  display: flex;
+  gap: min(2vw, 7.2px);
+  overflow-x: auto;
+  margin-bottom: min(2vw, 7.2px);
+  padding-bottom: min(1vw, 3.6px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.subCategoryTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.subCategoryButton {
+  border: none;
+  background: transparent;
+  padding: min(2vw, 7.2px) min(3vw, 10.8px) min(1.5vw, 5.4px) min(3vw, 10.8px);
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(3.5vw, 12.6px);
+  font-weight: 600;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 0;
+  flex: 0 0 auto;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.2s ease,
+    border-bottom-color 0.2s ease;
+}
+
+.subCategoryButtonActive {
+  color: #333333;
+  border-bottom-color: #333333;
+}
+
+.closetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: 10px;
+  justify-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(min(25vw, 90px) + 10px);
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@media (min-height: 720px) {
+  .closetGrid {
+    grid-template-rows: repeat(2, auto);
+    max-height: calc(2 * (min(25vw, 90px) + 10px));
+  }
+}
+
+.closetGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.closetCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(2.5vw, 9px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.closetThumbnail {
+  width: min(25vw, 90px);
+  height: min(25vw, 90px);
+  border-radius: min(5vw, 18px);
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    border 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.closetCardSelected .closetThumbnail {
+  border-color: #333333;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.closetImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+
+.emptyState {
+  margin: 0;
+  margin-top: min(8vh, 64px);
+  font-size: min(3.5vw, 12.6px);
+  color: #9ca3af;
+  text-align: center;
+}
+
+.confirmButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.backButton {
+  width: 100%;
+  height: min(6vh, 48px);
+  border: 2px solid #e5e7eb;
+  border-radius: min(3vw, 10.8px);
+  background: #ffffff;
+  color: #6b7280;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(3.8vw, 13.68px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: min(2vw, 7.2px);
+}
+
+.backButton:hover {
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: min(2vw, 7.2px);
+}
+
+.footerButton {
+  width: 100%;
+  height: min(7vh, 56px);
+  border: none;
+  border-radius: 12px;
+  background: #333333;
+  color: #ffffff;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(4vw, 14.4px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footerButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.selectionCard:focus-visible,
+.subCategoryButton:focus-visible,
+.closetCard:focus-visible,
+.avatarAction:focus-visible,
+.avatarPreviewButton:focus-visible,
+.confirmButton:focus-visible,
+.footerButton:focus-visible {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.loadingContent {
+  padding: min(8vw, 28.8px) min(7vw, 25.2px);
+  border-radius: min(4vw, 14.4px);
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(3vw, 10.8px);
+  box-shadow: 0px 24px 48px rgba(15, 23, 42, 0.25);
+}
+
+.loadingSpinner {
+  width: min(9vw, 32.4px);
+  height: min(9vw, 32.4px);
+  border-radius: 50%;
+  border: min(0.8vw, 2.88px) solid #d1d5db;
+  border-top-color: #333333;
+  animation: loading-spin 1s linear infinite;
+}
+
+.loadingMessage {
+  margin: 0;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(3.5vw, 12.6px);
+  font-weight: 600;
+  color: #111827;
+}
+
+@keyframes loading-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.confirmButtonBottom {
+  position: fixed;
+  width: min(90vw, 324px);
+  bottom: min(12vh, 96px);
+  left: 50%;
+  transform: translateX(-50%);
+  height: min(7vh, 56px);
+  border: none;
+  border-radius: min(3vw, 10.8px);
+  background: #333333;
+  color: #ffffff;
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  font-size: min(4vw, 14.4px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.confirmButtonBottom:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -1,0 +1,55 @@
+name: Deploy Vite to S3 (dev)
+
+on:
+  push:
+    branches:
+      - dev
+      - hotfix/*
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    env:
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      CF_DISTRIBUTION_ID: ${{ secrets.CF_DISTRIBUTION_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Create env file For Inject .env values
+        run: |
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" >> .env
+          echo "VITE_FASTAPI_URL=${{ secrets.VITE_FASTAPI_URL }}" >> .env
+          echo "VITE_KAKAO_REST_API_KEY=${{ secrets.VITE_KAKAO_REST_API_KEY }}" >> .env
+          echo "VITE_KAKAO_REDIRECT_URI=${{ secrets.VITE_KAKAO_REDIRECT_URI }}" >> .env
+
+      - name: Build (Vite)
+        run: npm run build
+
+      - name: Configure AWS creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Sync to S3
+        run: aws s3 sync dist "s3://$S3_BUCKET/" --delete
+
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id "$CF_DISTRIBUTION_ID" --paths "/*"

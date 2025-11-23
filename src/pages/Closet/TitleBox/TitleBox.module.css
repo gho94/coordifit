@@ -1,0 +1,43 @@
+.titleBox {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.titleText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: -0.2px;
+  line-height: 1.6;
+  margin: 4px 0;
+
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.placeholderBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  color: #b3b3b3;
+  font-size: 13px;
+  font-style: italic;
+  padding: 6px 0;
+  background: linear-gradient(135deg, #fafafa 0%, #fdfdfd 100%);
+  border-bottom: 1px solid #333333;
+  border-radius: 10px;
+}
+
+.placeholderIcon {
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.placeholderText {
+  color: #aaa;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+}

@@ -1,0 +1,46 @@
+.button {
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.md {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 50%;
+}
+
+.large {
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  width: 80%;
+  max-width: 320px;
+}
+
+.small {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  width: 30%;
+}
+
+.primary {
+  background-color: #007bff;
+}
+.secondary {
+  background-color: #8e8e93;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+.default {
+  background-color: #333333;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}

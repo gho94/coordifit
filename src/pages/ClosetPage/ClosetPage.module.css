@@ -1,0 +1,873 @@
+.container {
+  position: relative;
+  display: flex;
+  padding: 0px 0px 0px 0px;
+  flex-direction: column;
+  min-height: 100%;
+  height: 160px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.topActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 32px;
+}
+
+.selectToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #ffffff;
+  border-radius: 14px;
+  background: #ffffff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.selectToggle:not(.cancelSelect) .toggleIcon {
+  display: none;
+}
+
+.cancelSelect {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #000;
+  font-weight: 600;
+}
+
+.toggleIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #131214;
+  border-radius: 50%;
+}
+
+.toggleIcon::before,
+.toggleIcon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1.5px;
+  background: #131214;
+  transform: translate(-50%, -50%);
+}
+
+.toggleIcon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.cancelSelect .toggleIcon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cancelSelect .toggleIcon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.registerLink {
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabBar {
+  display: flex;
+  border-bottom: 1px solid #e6eaec;
+  position: relative;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 0px 0px 12px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  color: #d5d5d5;
+  position: relative;
+  cursor: pointer;
+}
+
+.tabButton + .tabButton::before {
+  content: "";
+  position: absolute;
+  top: 0; /* 가로선과 밀착 */
+  bottom: 0; /* 세로선이 가득 차도록 */
+  left: 0;
+  width: 1px;
+  background: #e6eaec;
+}
+
+.tabButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: #e6eaec;
+}
+
+.activeTab {
+  color: #333;
+  font-size: 17px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryMainList {
+  display: flex;
+  gap: 6px;
+  padding: 0 20px 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.categoryButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background: #ffffff;
+  color: #a6a6a6;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.activeCategory {
+  background: #333;
+  color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.panelToggle {
+  border: none;
+  background: transparent;
+  color: #8e8e93;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.subCategoryList {
+  display: flex;
+  gap: 12px;
+  padding: 0 20px 0;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.subCategoryButton {
+  border: none;
+  background: transparent;
+  padding: 8px 10px 6px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #d5d5d5;
+  white-space: nowrap;
+}
+
+.activeSubCategory {
+  color: #333;
+  border-bottom: 1px solid #000;
+}
+
+.utilityRow {
+  display: flex;
+  justify-content: space-between; /* 좌-우 끝 배치 */
+  align-items: center;
+  margin: 0px 0 10px;
+  gap: 12px; /* 버튼 사이 간격 */
+}
+
+.coordiUtilRow {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.selectionStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.selectionBadge {
+  position: relative;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #131214;
+  border-radius: 4px;
+}
+
+.selectionBadge::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: 1.5px solid #131214;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+.selectionText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+}
+
+.selectionPlaceholder {
+  min-height: 20px;
+  min-width: 81px;
+  padding: 0;
+}
+
+.coordiSort {
+  margin: 0;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  height: 26px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background: #fff;
+  font-family: "Pretendard", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+}
+
+.sortIcon {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #131214;
+}
+
+.gridSection {
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.grid {
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  justify-items: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.card {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  border: 1px solid rgba(170, 178, 200, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 12px 6px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardImage {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.cardDefaultImageAi {
+  width: 60%;
+  object-fit: cover;
+}
+
+.cardImageAi {
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid #131214;
+  background: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
+}
+
+.checkbox::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 1.5px solid transparent;
+  transform: rotate(45deg);
+}
+
+.checkboxChecked {
+  border-color: #131214;
+  background-color: #fff;
+  background-image: url("@/assets/images/checkicon.png");
+  background-size: 15px 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkboxChecked::after {
+  content: none;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.cardName {
+  width: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  color: #a6a6a6;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* 두 줄 제한 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.coordiCardName {
+  margin-top: 13px;
+}
+
+.cardMeta {
+  width: 100%;
+  font-size: 8px;
+  color: #a6a6a6;
+}
+
+.addCard {
+  width: 100%;
+  height: 160px;
+  position: relative;
+  border: 1px solid rgba(170, 178, 200, 0.2);
+  background: #f4f6f7;
+}
+
+.addCardButton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 5px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.coordiAddCard {
+  background-color: #f4f6f7;
+}
+
+.addCardOptions {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+}
+
+.addCardOption {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  width: 90px;
+  height: 31px;
+  padding: 5px 2px;
+  background: #d5d5d5;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addCardOption:hover {
+  background: #bfbfbf;
+}
+
+.addCardOptionIcon {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.addCardOptionIcon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.addCardOptionText {
+  font-family: "Pretendard", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #131214;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.addLabel {
+  font-family: "Pretendard", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.observerTarget {
+  width: 100%;
+  height: 1px;
+}
+
+.categoryPanel {
+  position: fixed;
+  top: 88px;
+  right: 12px;
+  width: 220px;
+  max-height: calc(100vh - 140px);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 20;
+}
+
+.categoryPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryPanelTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.categoryPanelClose {
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.categoryPanelBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.categoryPanelGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoryPanelMain {
+  border: none;
+  background: #f3f3f3;
+  border-radius: 14px;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+}
+
+.activePanelMain {
+  background: #111;
+  color: #fff;
+}
+
+.categoryPanelSubList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.categoryPanelSub {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #fff;
+  color: #666;
+}
+
+.activePanelSub {
+  border-color: #111;
+  color: #111;
+  font-weight: 600;
+}
+
+.deletePill {
+  position: fixed;
+  left: 50%;
+  bottom: 180px;
+  transform: translateX(-50%);
+  z-index: 200; /* ✅ 다른 요소 위로 띄우기 */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #8e8e93;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.deleteIcon {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #131214;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.deleteIcon::before,
+.deleteIcon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 1.5px;
+  background: #131214;
+  transform: translate(-50%, -50%);
+}
+
+.deleteIcon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.categoryMainList::-webkit-scrollbar,
+.subCategoryList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .deletePill {
+    bottom: 84px;
+  }
+
+  .categoryPanel {
+    inset: auto 16px 84px 16px;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .addButton {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .fab {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+  }
+}
+
+.sortWrapper {
+  position: relative;
+}
+
+.sortDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 120px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 6px 0;
+  z-index: 100;
+  animation: dropdownFade 0.15s ease-out;
+}
+
+.sortOption {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.sortOption:hover {
+  background: #f5f5f5;
+}
+
+.activeSort {
+  font-weight: 600;
+  color: #111;
+  background: #f0f0f0;
+}
+
+.sortArrow {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #131214;
+  margin-left: 6px;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Action Button */
+.fab {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.2s ease;
+}
+
+.fab:hover {
+  background: #555;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.fab:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.viewTabButton {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+
+.activeViewTab {
+  border-color: #222;
+  background: #222;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.addAiButton {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  position: absolute;
+  background: none;
+  bottom: -10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.9;
+
+  &:hover {
+    background-color: #111;
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+/* 하단 고정 바 */
+.addBar {
+  position: sticky;
+  bottom: 0; /* 스크롤 하단에 달라붙음 */
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid #eee;
+  box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* 버튼 스타일 */
+.addButton {
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #222, #444);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #111, #333);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}

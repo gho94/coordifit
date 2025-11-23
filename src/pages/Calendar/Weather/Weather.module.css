@@ -1,0 +1,27 @@
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0px 10px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.icon {
+  margin: 0;
+  padding: 0;
+}
+
+.text {
+  white-space: nowrap;
+}
+.badgeMuted {
+  color: #888;
+  font-size: 13px;
+}
+
+.loadingText {
+  font-size: 14px;
+  color: "#888";
+  font-family: "Pretendard Variable", "Pretendard", sans-serif;
+}

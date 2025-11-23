@@ -1,0 +1,693 @@
+.page {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  height: calc(100vh - 180px);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.backIcon {
+  width: 24px;
+  height: 24px;
+  border-left: 1.5px solid #333333;
+  border-bottom: 1.5px solid #333333;
+  transform: rotate(45deg);
+}
+
+.headerTitle {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.headerPlaceholder {
+  width: 40px;
+  height: 40px;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.itemName {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #0a0505;
+  text-align: center;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+  align-items: stretch; /* 모든 카드 동일 높이 */
+}
+
+/* ✅ statCard 기본 구조 */
+.statCard {
+  height: 72px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 기본은 위쪽 정렬 */
+  padding: 8px 6px;
+  text-align: center;
+  word-break: keep-all;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* ✅ 제목 */
+.statLabel {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* ✅ 값 */
+.statValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #78a4d1;
+  text-align: center;
+  line-height: 1.3;
+  display: flex;
+  align-items: center; /* 기본 세로 중앙 정렬 */
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  word-break: keep-all;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* ✅ 슬래시(/) 뒤에서 줄바꿈 가능 */
+.statValue {
+  word-break: keep-all;
+}
+.statValue::before,
+.statValue::after {
+  content: "";
+  white-space: pre;
+}
+
+/* ✅ 2줄 이상일 때 위쪽 정렬 */
+.statValue:has(br),
+.statValue:has(span + span) {
+  align-items: flex-start;
+}
+
+/* ================= INFO ================= */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  margin-bottom: 8px;
+}
+
+.fieldAlignTop {
+  align-items: flex-start;
+}
+
+.fieldLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+  width: 70px;
+}
+
+.fieldValue {
+  width: 80%;
+  font-size: 15px;
+  font-weight: 700;
+  color: #78a4d1;
+  text-align: right;
+}
+
+.descriptionValue {
+  text-align: right;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.fieldEditing {
+  align-items: flex-start;
+}
+
+.fieldInput {
+  flex: 1;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #333333;
+  text-align: right;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: #333333;
+}
+
+.fieldInput[type="date"] {
+  text-align: right;
+  font-size: 15px; /* 글자 크기 조절 */
+  font-weight: 600; /* 굵게 */
+  color: #333333; /* 진한 글자색 */
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  letter-spacing: 0.3px; /* 자간 살짝 */
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.fieldInput[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(45%) sepia(40%) saturate(350%) hue-rotate(180deg);
+  opacity: 0.8;
+}
+
+.fieldInput::placeholder {
+  color: #b0b0b0;
+}
+
+.fieldEditing textarea.fieldInput {
+  min-height: 80px;
+  resize: vertical;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* ================= DETAIL ================= */
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333333;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.detailToggleLabel {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "pretendard-variable";
+  color: #333333;
+}
+
+.chevron {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.detailPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.textRight {
+  text-align: right;
+  word-break: break-all;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background: #fff;
+}
+
+.primaryAction,
+.secondaryAction {
+  flex: 1;
+  height: 39px;
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  line-height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.primaryAction {
+  background: #333333;
+  color: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.secondaryAction {
+  background: #8e8e93;
+  color: #ffffff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 360px) {
+  .imageFrame {
+    width: 169px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .statRow {
+    flex-wrap: wrap;
+  }
+
+  .statCard {
+    flex: 1 1 calc(33.33% - 10px);
+    min-width: 100px;
+  }
+}
+
+/* ================= CATEGORY SHEET ================= */
+.sheetOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 999;
+}
+
+.sheet {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sheetHandle {
+  width: 60px;
+  height: 4px;
+  border-radius: 4px;
+  background: #d9d9d9;
+  align-self: center;
+}
+
+.sheetTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  text-align: left;
+}
+
+.sheetMainList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sheetMainButton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  background: #f3f4f6;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sheetMainIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.sheetMainActive {
+  background: #a6a6a6;
+  color: #ffffff;
+}
+
+.sheetMainActive .sheetMainIcon {
+  background: #ffffff;
+  color: #333333;
+}
+
+.sheetSubTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.sheetSubGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sheetSubButton {
+  min-width: 50px;
+  height: 25px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: none;
+  background: #f3f4f6;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+}
+
+.sheetSubActive {
+  background: #999999;
+  color: #ffffff;
+}
+
+/* ================= 사진 영역 ================= */
+.photoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* ✅ 캐러셀 컨테이너 */
+.carouselContainer {
+  position: relative;
+  width: 80%;
+  max-width: 200px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden; /* ✅ 핵심 */
+  border-radius: 14px;
+  margin: 0 auto 16px;
+  background: #f5f5f5;
+}
+
+/* ✅ 캐러셀 트랙 */
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  touch-action: pan-x;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+/* ✅ 각 슬라이드 */
+.carouselSlide {
+  flex: 0 0 90%;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* ✅ 이미지 비율 유지 + 약간의 여백 효과 */
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 14px;
+  background-color: #fff;
+}
+
+/* 삭제 버튼 */
+.removeButton {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* ✅ 추가 버튼 */
+.photoUploader {
+  flex: 0 0 75%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px dashed #ccc;
+}
+
+.photoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #6b7280;
+}
+
+.photoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  font-size: 22px;
+}
+
+.photoText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.fileInput {
+  display: none;
+}
+
+/* ✅ 이미지 개수 텍스트 */
+.photoCount {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.categoryButton {
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  background: rgba(120, 164, 209, 0.12);
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.categoryButton:hover {
+  background: rgba(120, 164, 209, 0.22);
+}
+
+.page .statRow.statRowEditing {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.categoryCardWide {
+  width: 100% !important;
+}
+
+.page .statRow.statRowEditing .statCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 32px;
+  justify-content: space-between;
+}
+
+.page .statRow.statRowEditing .categoryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px 0 16px;
+  border-radius: 8px;
+  background: #ebebf1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  min-width: 140px;
+  text-align: right;
+  cursor: pointer;
+  position: relative;
+}
+.page .statRow.statRowEditing .statLabel {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.page .statRow.statRowEditing .categoryButton:hover {
+  background: rgba(120, 164, 209, 0.25);
+}
+
+.page .statRow.statRowEditing .categoryButton::after {
+  content: "▾";
+  font-size: 14px;
+  color: #333;
+  margin-left: 4px;
+}
+
+/* ✅ 마지막 “사진 추가” 카드 */
+.addNewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #c8c8c8;
+  background: #fafafa;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  gap: 8px;
+}
+
+.addNewCard:hover {
+  background: #f0f0f0;
+}
+
+.addIcon {
+  width: 42px;
+  height: 42px;
+  opacity: 0.7;
+}
+
+.addText {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}

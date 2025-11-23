@@ -1,0 +1,387 @@
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.refreshBtn, .addBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.refreshBtn {
+  background-color: #1d1d1f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.refreshBtn:hover {
+  background-color: #000000;
+}
+
+.addBtn {
+  background-color: #1d1d1f;
+  color: white;
+}
+
+.addBtn:hover {
+  background-color: #000000;
+}
+
+
+/* 코드 추가 섹션 */
+.addCodeSection {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.addCodeFields {
+  display: flex;
+  align-items: end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.labelContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: space-between;
+}
+
+.parentCodeInput, .codeNameInput {
+  padding: 8px 12px;
+  border: 1px solid #d7d7db;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f8f8fa;
+  min-width: 200px;
+}
+
+.parentCodeInput {
+  background-color: #e9ecef;
+  color: #6c757d;
+}
+
+.codeNameInput:focus {
+  outline: 2px solid #1d1d1f;
+  background-color: white;
+}
+
+.addCodeBtn {
+  padding: 8px 16px;
+  background-color: #1d1d1f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: fit-content;
+}
+
+.addCodeBtn:hover:not(:disabled) {
+  background-color: #000000;
+}
+
+.addCodeBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+
+
+.treeContainer {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  height: calc(100vh - 270px);
+  display: flex;
+  flex-direction: column;
+}
+
+.treeHeader {
+  display: grid;
+  grid-template-columns: 150px 2fr 100px 200px;
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  gap: 0;
+}
+
+.treeHeader > div {
+  border-right: 1px solid #e9ecef;
+  padding-right: 8px;
+  text-align: center;
+}
+
+.treeHeader > div:last-child {
+  border-right: none;
+}
+
+.treeContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.treeNode {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.treeNode:last-child {
+  border-bottom: none;
+}
+
+.treeNodeContent {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.treeNodeContent:hover {
+  background-color: #f8f9fa;
+}
+
+.treeNodeHeader {
+  display: grid;
+  grid-template-columns: 150px 2fr 100px 200px;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 0;
+}
+
+.codeIdSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-right: 1px solid #e9ecef;
+  padding-right: 8px;
+}
+
+.codeNameSection {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #e9ecef;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.statusSection {
+  border-right: 1px solid #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.actionSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionButton {
+  padding: 4px 8px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: #5a6268;
+}
+
+.actionButton.active {
+  background: #000000;
+}
+
+.treeToggle {
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.treeSpacer {
+  width: 20px;
+  height: 20px;
+}
+
+.treeCodeId {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #1d1d1f;
+  font-size: 14px;
+}
+
+.treeCodeName {
+  color: #1d1d1f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.editInput {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  color: #1d1d1f;
+}
+
+.editInput:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+.treeChildren {
+  background-color: #fafafa;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  color: #666;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #dc3545;
+}
+
+.error h3 {
+  margin-bottom: 10px;
+}
+
+.retryBtn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  
+  .treeHeader {
+    grid-template-columns: 100px 1fr 60px 80px;
+    font-size: 12px;
+  }
+  
+  .treeNodeHeader {
+    grid-template-columns: 25px 100px 1fr 60px 80px;
+    font-size: 12px;
+  }
+  
+  .treeCodeId {
+    font-size: 12px;
+  }
+  
+  .treeCodeName {
+    font-size: 12px;
+  }
+}
+
+/* 데스크톱 최적화 */
+@media (min-width: 769px) {
+  .container {
+    padding: 30px;
+  }
+}

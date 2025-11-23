@@ -1,0 +1,55 @@
+const CATEGORIES = {
+  B10001: { ko: "옷 카테고리", en: "Clothing Categories", parent: null },
+
+  B20001: { ko: "상의", en: "Tops", parent: "B10001" },
+  B20002: { ko: "하의", en: "Bottoms", parent: "B10001" },
+  B20003: { ko: "신발", en: "Shoes", parent: "B10001" },
+  B20004: { ko: "아우터", en: "Outerwear", parent: "B10001" },
+  B20005: { ko: "패션소품", en: "Accessories", parent: "B10001" },
+
+  B30001: { ko: "셔츠", en: "Shirt", parent: "B20001" },
+  B30002: { ko: "카라티", en: "Polo Shirt", parent: "B20001" },
+  B30003: { ko: "반팔티", en: "Short Sleeve Tee", parent: "B20001" },
+  B30004: { ko: "긴팔티", en: "Long Sleeve Tee", parent: "B20001" },
+  B30005: { ko: "후드티", en: "Hoodie", parent: "B20001" },
+  B30006: { ko: "맨투맨", en: "Sweatshirt", parent: "B20001" },
+  B30007: { ko: "니트", en: "Knit", parent: "B20001" },
+  B30008: { ko: "민소매", en: "Sleeveless", parent: "B20001" },
+  B30009: { ko: "원피스", en: "Dress", parent: "B20001" },
+  B30010: { ko: "기타상의", en: "Other Tops", parent: "B20001" },
+
+  B30011: { ko: "반바지", en: "Shorts", parent: "B20002" },
+  B30012: { ko: "청바지", en: "Jeans", parent: "B20002" },
+  B30013: { ko: "슬랙스", en: "Slacks", parent: "B20002" },
+  B30014: { ko: "면바지", en: "Chino Pants", parent: "B20002" },
+  B30015: { ko: "트레이닝바지", en: "Sweatpants", parent: "B20002" },
+  B30016: { ko: "레깅스", en: "Leggings", parent: "B20002" },
+  B30017: { ko: "치마", en: "Skirt", parent: "B20002" },
+  B30018: { ko: "기타하의", en: "Other Bottoms", parent: "B20002" },
+
+  B30019: { ko: "스니커즈", en: "Sneakers", parent: "B20003" },
+  B30020: { ko: "패딩/퍼신발", en: "Insulated/Fur Shoes", parent: "B20003" },
+  B30021: { ko: "부츠/워커", en: "Boots/Work Boots", parent: "B20003" },
+  B30022: { ko: "구두", en: "Dress Shoes", parent: "B20003" },
+  B30023: { ko: "샌들", en: "Sandals", parent: "B20003" },
+  B30024: { ko: "스포츠화", en: "Sport Shoes", parent: "B20003" },
+  B30025: { ko: "기타신발", en: "Other Shoes", parent: "B20003" },
+
+  B30026: { ko: "코트", en: "Coat", parent: "B20004" },
+  B30027: { ko: "자켓", en: "Jacket", parent: "B20004" },
+  B30028: { ko: "패딩", en: "Padded Jacket", parent: "B20004" },
+  B30029: { ko: "블레이저", en: "Blazer", parent: "B20004" },
+  B30030: { ko: "가디건", en: "Cardigan", parent: "B20004" },
+  B30031: { ko: "후드집업", en: "Zip-up Hoodie", parent: "B20004" },
+  B30032: { ko: "기타아우터", en: "Other Outerwear", parent: "B20004" },
+
+  B30033: { ko: "모자", en: "Hat", parent: "B20005" },
+  B30034: { ko: "머플러", en: "Scarf", parent: "B20005" },
+  B30035: { ko: "악세서리", en: "Accessories", parent: "B20005" },
+  B30036: { ko: "선글라스/안경", en: "Sunglasses/Glasses", parent: "B20005" },
+  B30037: { ko: "벨트", en: "Belt", parent: "B20005" },
+  B30038: { ko: "시계", en: "Watch", parent: "B20005" },
+  B30039: { ko: "양말", en: "Socks", parent: "B20005" },
+};
+
+export { CATEGORIES };

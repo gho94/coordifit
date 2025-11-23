@@ -1,0 +1,429 @@
+.color {
+  color: red;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.header-wapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.header-left {
+  overflow: scroll;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: ew-resize;
+}
+
+.header-left::-webkit-scrollbar {
+  display: none;
+}
+
+.view-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 10px;
+}
+
+.tab {
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &.active {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.wrapper {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slot {
+  height: 74px;
+}
+
+.button-wrapper {
+  min-height: 48px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  border: 0.5px solid #333333;
+  padding: 4px 10px;
+  background: none;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  user-select: none;
+
+  .ai-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  /* 공통 hover 미세 효과 */
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* ✅ 피팅 보기 (이미지 있음 → View) : 차분한 세컨더리 */
+.ai-button.is-view {
+  background: #fff;
+  color: #333;
+  border: 1.5px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    border-color: #cfcfcf;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .ai-badge {
+    margin-left: 2px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #2e7d32;
+    background: #e7f6ea; /* 초록빛 완료 뱃지 */
+    border: 1px solid #c5e6cb;
+    border-radius: 9999px;
+  }
+}
+
+/* ✨ 피팅하러 가기 (생성 CTA) : 알록달록 그라디언트 + 은은한 애니메이션 */
+@keyframes aiGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-button.is-cta {
+    animation: none !important;
+  }
+}
+
+.ai-button.is-cta {
+  color: #fff;
+  border: none;
+  background: linear-gradient(135deg, #7b5cff, #3ec6ff, #ff7bc8);
+  background-size: 200% 200%;
+  box-shadow: 0 6px 14px rgba(123, 92, 255, 0.25);
+  animation: aiGradientShift 6s ease infinite;
+
+  &:hover {
+    box-shadow: 0 8px 18px rgba(123, 92, 255, 0.32);
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+
+  .ai-icon {
+    filter: brightness(0) invert(1);
+  } /* 아이콘 흰색 유지 */
+}
+
+.view-toggle-wrapper {
+  width: max-content;
+}
+
+.view-toggle {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 3px;
+  background: #fff;
+  padding: 4px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* 개별 옵션 */
+.toggle-option {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #fafafa;
+  color: #444;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.12s ease;
+
+  &:hover {
+    background: #f2f2f2;
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    .span {
+      color: #f5f5f5;
+    }
+  }
+}
+
+.toggle-icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* AI 옵션의 상태 표시(없음일 때 살짝 흐림) */
+.toggle-ai.empty {
+  opacity: 0.92;
+}
+
+/* 상태 뱃지 */
+.ai-badge {
+  margin-left: 2px;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid transparent;
+
+  &.ok {
+    color: #2e7d32;
+    background: #e7f6ea;
+    border-color: #c5e6cb;
+  }
+  &.none {
+    color: #777;
+    background: #efefef;
+    border-color: #e0e0e0;
+  }
+}
+
+/* 좌상단 점 표시로도 직관성 강화 */
+.ai-dot {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.dot-ok {
+  background: #22c55e;
+}
+.dot-none {
+  background: #d4d4d4;
+}
+
+.wrapper {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper {
+  min-height: 48px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-ai {
+  background: #fafafa;
+  border: 1px dashed #e6e6e6;
+  border-radius: 12px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #7b5cff, #3ec6ff, #ff7bc8);
+  background-size: 200% 200%;
+  animation: aiGradientShift 6s ease infinite;
+
+  box-shadow: 0 8px 18px rgba(123, 92, 255, 0.28);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(123, 92, 255, 0.34);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.cta-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.span {
+  color: #333333;
+}
+
+/* 로딩 컴포넌트 CSS */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loadingBox {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 60px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.inputLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4e5662;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

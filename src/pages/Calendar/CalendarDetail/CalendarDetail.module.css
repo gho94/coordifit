@@ -1,0 +1,183 @@
+.button-wrapper {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+}
+
+.color {
+  color: brown;
+}
+
+.wrapper {
+  width: 100%;
+  /* aspect-ratio: 3.3 / 4; */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 20px;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.empty-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.headerPlaceholder {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f3f3f3;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.headerBar {
+  height: 56px;
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.headerBackBox,
+.headerRightBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #e7e7e7;
+  justify-self: center;
+}
+
+.headerTitle {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+}
+
+/* 콘텐츠 영역: 중앙 정렬 */
+.content {
+  flex: 1;
+  padding: 24px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* 빈 이미지 */
+.emptyImage {
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  user-select: none;
+}
+
+/* 안내 멘트 */
+.message {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 흑백 스타일 CTA 버튼 */
+.ctaButton {
+  margin-top: 6px;
+  appearance: none;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    opacity 0.15s ease;
+  touch-action: manipulation;
+}
+
+.ctaButton:active {
+  transform: translateY(1px);
+}
+
+@media (hover: hover) {
+  .ctaButton:hover {
+    filter: grayscale(20%);
+    opacity: 0.95;
+  }
+}
+
+.description-box {
+  width: 100%;
+  margin: 16px 0;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.description-text {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #aaa;
+  font-size: 14px;
+  font-style: italic;
+  height: 30px;
+  background: linear-gradient(135deg, #f8f8f8, #fdfdfd);
+  border: 1px dashed #ddd;
+  border-radius: 10px;
+}
+
+.placeholder-box i {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.inputLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4e5662;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}

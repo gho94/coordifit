@@ -1,0 +1,522 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+  height: 78vh;
+  overflow: hidden;
+  /* 화면 확대 방지 강화 */
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: calc(100vh - 140px);
+  /* 스크롤바 숨김 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.content::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Webkit */
+}
+
+.resultTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.originalImageSection {
+  margin-bottom: 24px;
+}
+
+.originalImage {
+  width: 320px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #d9d9d9;
+  display: block;
+  margin: 0 auto;
+}
+
+.countMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px;
+  width: 318px;
+  height: 37px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.countText {
+  width: 223px;
+  height: 18px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+  margin: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.instructionText {
+  width: 318px;
+  height: 13px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #333333;
+  margin: 0;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.resultSection {
+  flex: 1;
+}
+
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.productCards {
+  display: flex;
+  gap: 0px;
+  overflow-x: auto;
+  overflow-y: auto; /* 세로 스크롤 기능 유지 */
+  padding: 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  width: 100%;
+}
+
+.productCards::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Webkit */
+}
+
+.pageIndicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.2s ease;
+}
+
+.activeDot {
+  background: #333;
+}
+
+.resultItem {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 320px;
+  min-width: 320px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  margin: 0 auto;
+  transform: translateZ(0); /* 하드웨어 가속 */
+  will-change: transform; /* 성능 최적화 */
+  contain: layout style paint; /* 페인팅 최적화 */
+}
+
+.purchaseDate {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  padding-left: 0px;
+}
+
+.purchaseDate span {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.tableHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 16px;
+}
+
+.headerCell {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.headerCell:first-child {
+  width: 96px;
+  border-right: 1px solid #000000;
+}
+
+.headerCell:last-child {
+  width: 223px;
+  flex: 1;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 1px;
+  width: 100%;
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  height: 28px;
+  gap: 0px;
+}
+
+.fieldCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 96px;
+  height: 100%;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.valueCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  width: 223px;
+  height: 28px;
+  flex: 1;
+}
+
+.valueInput {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0px 5px 5px;
+  width: 166.84px;
+  height: 28px;
+  border-bottom: 1px solid #000000;
+  border-radius: 5px 5px 0px 0px;
+  flex: 1;
+}
+
+.valueInput.placeholder {
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  padding: 0px 5px 5px 10px;
+}
+
+.valueInput span {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: -0.03em;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 120px;
+  display: inline-block;
+}
+
+.valueInput.placeholder span {
+  color: #a5a5a5;
+}
+
+.actionIcons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  width: 32.16px;
+  height: 11.33px;
+}
+
+.editIcon,
+.deleteIcon {
+  width: 11.33px;
+  height: 11.33px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  object-fit: contain;
+}
+
+.editIcon:hover,
+.deleteIcon:hover {
+  opacity: 1;
+}
+
+.checkbox {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #4f46e5;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.noResults {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.noResults p {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 20px 0;
+}
+
+.retryButton {
+  padding: 12px 24px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.errorMessage {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.errorMessage p {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 20px 0;
+}
+
+.bottomActions {
+  position: fixed;
+  bottom: 80px; /* 하단 탭 위 80px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 360px;
+  background: white;
+  padding: 8px 10px;
+  border-top: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selectionInfo {
+  font-size: 14px;
+  color: #666;
+}
+
+.selectionCount {
+  font-weight: 600;
+  color: #333333;
+}
+
+.addToClosetButton {
+  padding: 12px 24px;
+  background: #333333;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addToClosetButton:hover:not(:disabled) {
+  background: #333333;
+}
+
+.addToClosetButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* 반응형 디자인 */
+@media (min-width: 481px) {
+  .container {
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .bottomActions {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-bottom: 45px;
+  }
+
+  .bottomActions {
+    bottom: 80px;
+  }
+
+  .editInput {
+    font-size: 16px;
+  }
+}
+
+.saveButton,
+.cancelButton {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.saveButton:hover,
+.cancelButton:hover {
+  opacity: 0.8;
+}
+
+/* 인라인 편집 스타일 */
+.editingContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.editInput {
+  flex: 1;
+  border: 1px solid #4f46e5;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: "Pretendard";
+  color: #000;
+  background: #fff;
+  outline: none;
+  height: 16px;
+  box-sizing: border-box;
+  min-width: 0;
+  /* 모바일 확대 방지 */
+  font-size: 16px;
+  transform: scale(0.6875);
+  transform-origin: left center;
+  width: 145%;
+}
+
+.editInput:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.editActions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}

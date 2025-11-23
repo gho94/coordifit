@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "dailylookId": 501,
+      "title": "브런치 초안",
+      "thumbnail": { "url": "https://img.../dl_501.webp", "w": 800, "h": 800 },
+      "favorite": true,
+      "sourceContext": "WARDROBE",
+      "categories": ["CASUAL", "NEUTRAL"],
+      "outfitsCount": 3,
+      "hasRender": true,
+      "createdAt": "2025-09-10T12:10:00+09:00",
+      "updatedAt": "2025-09-11T09:02:00+09:00",
+      "links": {
+        "detail": "/closet/dailylooks/501",
+        "promote": "/closet/dailylooks/501/promote-to-mylook"
+      }
+    }
+  ],
+  "nextCursor": "eyJpZCI6NTAxLCJ1cGRhdGVkQXQiOiIyMDI1LTA5LTExIn0="
+}
