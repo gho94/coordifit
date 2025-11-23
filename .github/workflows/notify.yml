@@ -1,0 +1,98 @@
+name: notify
+
+on:
+  pull_request:
+    types: [opened, reopened, closed]
+  workflow_run:
+    workflows: ["Build and Push YOLO Image"]
+    types:
+      - completed
+
+jobs:
+  notify-pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo '${{ toJson(github.event.workflow_run) }}'
+      - run: >
+          PROBLEM=$(
+            echo ${{ toJson(github.event.pull_request.body) }} |
+            grep -Pio 'http[\w\:\/\.-]+' |
+            head -1
+          );
+          echo "PROBLEM=$PROBLEM" >> $GITHUB_ENV
+      - env:
+          DATA: >
+            {
+              "username": ${{ toJson(github.event.sender.login) }},
+              "avatar_url": ${{ toJson(github.event.sender.avatar_url) }},
+              "embeds": [
+                {
+                  "title": ${{ toJson(github.event.pull_request.title) }},
+                  "description": "PR 이벤트 발생: **${{ github.event.action }}**\n\n${{ env.PROBLEM }}",
+                  "url": ${{ toJson(github.event.pull_request.html_url) }},
+                  "color": 3447003
+                }
+              ]
+            }
+        run: >
+          curl -X POST -H 'Content-type:application/json'
+          -d "$DATA"
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+  notify-build-success:
+    if: ${{ github.event_name == 'workflow_run' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug workflow_run payload
+        run: echo '${{ toJson(github.event.workflow_run) }}'
+
+      - if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        env:
+          DATA: >
+            {
+              "username": "GitHub Actions",
+              "embeds": [
+                {
+                  "title": "✅ fastapi-ci-cd 성공",
+                  "description": "job: **build_and_push** 완료\nworkflow: ${{ github.event.workflow_run.name }}",
+                  "url": ${{ toJson(github.event.workflow_run.html_url) }},
+                  "color": 5763719
+                }
+              ]
+            }
+        run: |
+          echo "=== Sending to Discord ==="
+          echo "$DATA"
+          curl -X POST -H 'Content-type:application/json' \
+            -d "$DATA" \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+  notify-build-failure:
+    if: ${{ github.event_name == 'workflow_run' }}
+    runs-on: ubuntu-latest
+    steps:
+      # Debug: 실제 이벤트 값 찍어보기
+      - name: Debug workflow_run payload
+        run: echo '${{ toJson(github.event.workflow_run) }}'
+
+      - if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        env:
+          DATA: >
+            {
+              "username": "GitHub Actions",
+              "embeds": [
+                {
+                  "title": "❌ fastapi-ci-cd 실패",
+                  "description": "workflow: ${{ github.event.workflow_run.name }}\n결과: **${{ github.event.workflow_run.conclusion }}**",
+                  "url": ${{ toJson(github.event.workflow_run.html_url) }},
+                  "color": 15548997
+                }
+              ]
+            }
+        run: |
+          echo "=== Sending Failure Alert to Discord ==="
+          echo "$DATA"
+          curl -X POST -H 'Content-type:application/json' \
+            -d "$DATA" \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}

@@ -1,0 +1,50 @@
+name: Build and Push YOLO Image
+
+on:
+  push:
+    branches: [dev]
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push FastAPI image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          no-cache: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/coordifit-fastapi:latest
+
+  deploy_to_ec2:
+    needs: build_and_deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH → pull & restart only fastapi
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "Pulling latest FastAPI Docker image..."
+            cd /home/ubuntu/coordifit
+            docker compose pull fastapi
+
+            echo "Restarting fastapi service..."
+            docker compose up -d --no-deps --force-recreate fastapi
+
+            echo "Remove past fastapi image"
+            docker image prune -f
+
+            echo "Deployment fastapi completed"
